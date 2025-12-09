@@ -115,10 +115,18 @@ const planetMeshes = planets.map((planet) => {
   });
   return planetMesh;
 });
-
+// lighting
+const f = pane.addFolder({ title: "Point Light" });
 const light = new THREE.AmbientLight(0xffffff, 0.1);
 scene.add(light);
 const pointLight = new THREE.PointLight(0xffffff, 100);
+console.log(pointLight);
+f.addBinding(pointLight, "intensity", {
+  min: 0,
+  max: 200,
+  step: 10,
+});
+
 // pointLight.position.set(5, 5, 5);
 scene.add(pointLight);
 
